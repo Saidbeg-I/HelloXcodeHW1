@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var greenColorView: UIView!
     @IBOutlet var yellowColorView: UIView!
     @IBOutlet var redColorView: UIView!
-    var sumPressedButton = 9
+    var sumPressedButton = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +23,32 @@ class ViewController: UIViewController {
         greenColorView.alpha = 0.5
         
         
-        redColorView.layer.cornerRadius = 60
-        yellowColorView.layer.cornerRadius = 60
-        greenColorView.layer.cornerRadius = 60
+        redColorView.layer.cornerRadius = 55
+        yellowColorView.layer.cornerRadius = 55
+        greenColorView.layer.cornerRadius = 55
         
         gratInclusionButton.layer.cornerRadius = 20
     }
 
     @IBAction func includesColorPressed() {
-        switch sumPressedButton {
+        if sumPressedButton == 1 {
+            gratInclusionButton.setTitle("Next", for: .normal)
+            redColorView.alpha = 1
+            sumPressedButton += 1
+        } else if redColorView.alpha == 1  {
+            redColorView.alpha = 0.5
+            yellowColorView.alpha = 1
+        } else if yellowColorView.alpha == 1 {
+            yellowColorView.alpha = 0.5
+            greenColorView.alpha = 1
+        } else if greenColorView.alpha == 1 {
+            greenColorView.alpha = 0.5
+            redColorView.alpha = 1
+        }
+       
+    }
+        
+       /* switch sumPressedButton {
         case 9 :
             gratInclusionButton.setTitle("Next", for: .normal)
             redColorView.alpha = 1
@@ -69,29 +86,9 @@ class ViewController: UIViewController {
             yellowColorView.alpha = 0.5
             sumPressedButton -= 1
         }
-    
-        
-        
-        
-        
-        
-        /*  if counter == 0 {
-            gratInclusionButton.setTitle("Next", for: .normal)
-            redColorView.alpha = 1
-            counter += 1
-        } else if counter > 0  {
-            redColorView.alpha = 0.5
-            yellowColorView.alpha = 1
-            counter += 1
-        } else if counter > 1  {
-            yellowColorView.alpha = 0.5
-            greenColorView.alpha = 1
-        } else {
-            greenColorView.alpha = 0.5
-            redColorView.alpha = 1
-        }
-     */
-    }
-    
+    } Извините , решил оставить результат предыдущщих усилий :)
+        а новая пришла в голову после сдачи ДЗ.но вы же сказали можно доработать),
+        по моему идеально ) не на радуюсь :)
+        знаю ошибок миллион, возможно было б правильно отработать опционалы 
+   */
 }
-
